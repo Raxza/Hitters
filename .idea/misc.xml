@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Code/AndroidStudioProject/Project/Hitters/app/src/main/res/drawable/rectangle_strk_brd.xml" value="0.3675" />
+        <entry key="..\:/Code/AndroidStudioProject/Project/Hitters/app/src/main/res/layout/activity_detail.xml" value="0.25" />
         <entry key="..\:/Code/AndroidStudioProject/Project/Hitters/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Code/AndroidStudioProject/Project/Hitters/app/src/main/res/layout/dialog_edit.xml" value="0.1" />
         <entry key="..\:/Code/AndroidStudioProject/Project/Hitters/app/src/main/res/layout/item_day.xml" value="0.33" />
+        <entry key="..\:/Code/AndroidStudioProject/Project/Hitters/app/src/main/res/layout/item_days.xml" value="0.22146739130434784" />
         <entry key="..\:/Code/AndroidStudioProject/Project/Hitters/app/src/main/res/layout/item_pre_wolist.xml" value="0.365625" />
       </map>
     </option>
