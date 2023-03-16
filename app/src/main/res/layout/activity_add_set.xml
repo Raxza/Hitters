@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="12dp"
-    tools:context=".AddActivity">
+    tools:context=".ui.AddSetActivity">
 
     <TextView
         android:id="@+id/tv_name"
@@ -17,8 +17,6 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_layout_set_name"
         style="@style/ti_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="Input Name"
         app:layout_constraintStart_toStartOf="@id/tv_name"
         app:layout_constraintTop_toBottomOf="@id/tv_name">
@@ -50,14 +48,14 @@
     <TextView
         android:id="@+id/tv_rep"
         style="@style/tv_15"
-        android:text="Repititions"
+        android:text="Repetition"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ti_layout_weight" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_layout_rep"
         style="@style/ti_layout"
-        android:hint="Input Repititions Number"
+        android:hint="Input Repetition Number"
         app:layout_constraintStart_toStartOf="@id/tv_rep"
         app:layout_constraintTop_toBottomOf="@id/tv_rep">
 
