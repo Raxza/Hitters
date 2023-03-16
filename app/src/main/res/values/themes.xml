@@ -15,7 +15,9 @@
     </style>
 
     <style name="tv_15">
-        
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15dp</item>
     </style>
 
     <style name="ti_layout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -27,7 +29,7 @@
         <item name="boxCornerRadiusTopStart">10dp</item>
     </style>
 
-    <style name="et_layout" >
+    <style name="edt_layout" >
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">10dp</item>

@@ -4,57 +4,107 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddActivity"
-    android:padding="12dp">
+    android:padding="12dp"
+    tools:context=".AddActivity">
 
     <TextView
         android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/tv_15"
         android:text="Name"
-        android:textSize="15dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edt_layout_set_name"
+        android:id="@+id/ti_layout_set_name"
+        style="@style/ti_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/ti_layout"
         android:hint="Input Name"
-        app:layout_constraintTop_toBottomOf="@id/tv_name"
-        app:layout_constraintStart_toStartOf="@id/tv_name" >
+        app:layout_constraintStart_toStartOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_name">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_set_name"
-            style="@style/et_layout"/>
+            style="@style/edt_layout" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@id/tv_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/tv_15"
         android:text="Weight"
-        android:textSize="15dp"
-        app:layout_constraintTop_toBottomOf="@id/edt_layout_set_name"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ti_layout_set_name" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/ti_layout_weight"
         style="@style/ti_layout"
         android:hint="Input Weight"
-        app:layout_constraintTop_toBottomOf="@id/tv_weight"
-        app:layout_constraintStart_toStartOf="@id/tv_weight" >
+        app:layout_constraintStart_toStartOf="@id/tv_weight"
+        app:layout_constraintTop_toBottomOf="@id/tv_weight">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_weight"
-            style="@style/et_layout"/>
-
+            style="@style/edt_layout" />
     </com.google.android.material.textfield.TextInputLayout>
-    
+
     <TextView
-        android:layout_width=""
-        android:layout_height=""
+        android:id="@+id/tv_rep"
+        style="@style/tv_15"
+        android:text="Repititions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ti_layout_weight" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_layout_rep"
+        style="@style/ti_layout"
+        android:hint="Input Repititions Number"
+        app:layout_constraintStart_toStartOf="@id/tv_rep"
+        app:layout_constraintTop_toBottomOf="@id/tv_rep">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_rep"
+            style="@style/edt_layout" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_set"
+        style="@style/tv_15"
+        android:text="Set"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ti_layout_rep" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_layout_set"
+        style="@style/ti_layout"
+        android:hint="Input Sets Number"
+        app:layout_constraintStart_toStartOf="@id/tv_set"
+        app:layout_constraintTop_toBottomOf="@id/tv_set">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_set"
+            style="@style/edt_layout" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_add"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ti_layout_set" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_marginStart="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_cancel"
+        app:layout_constraintTop_toTopOf="@+id/btn_cancel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
