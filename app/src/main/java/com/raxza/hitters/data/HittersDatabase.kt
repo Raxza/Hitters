@@ -7,8 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [Menu::class, Set::class], version = 1, exportSchema = false)
 abstract class HittersDatabase : RoomDatabase() {
-    abstract fun menuDao(): MenuDao
-    abstract fun setDao(): SetDao
+    abstract fun hittersDao(): HittersDao
 
     companion object {
         @Volatile
