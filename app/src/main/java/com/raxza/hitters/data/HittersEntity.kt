@@ -1,9 +1,7 @@
 package com.raxza.hitters.data
 
 import android.os.Parcelable
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -11,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 data class Menu (
 
         @PrimaryKey(autoGenerate = true)
-        val id: Int = 0,
+        val menuId: Int = 0,
 
         @field:ColumnInfo(name = "name")
         val name: String
@@ -21,7 +19,10 @@ data class Menu (
 data class Set(
 
         @PrimaryKey(autoGenerate = true)
-        val id: Int,
+        val setId: Int,
+
+        @field:ColumnInfo(name = "menuSetId")
+        val menuSetId: String,
 
         @field:ColumnInfo(name = "name")
         val name: String,
@@ -34,4 +35,15 @@ data class Set(
 
         @field:ColumnInfo(name = "set")
         val set: Int
+)
+
+data class MenuAndSet(
+        @Embedded
+        val menu: Menu,
+
+        @Relation(
+                parentColumn = "menuId",
+                entityColumn = "menuSetId"
+        )
+        val set: List<Set>
 )
