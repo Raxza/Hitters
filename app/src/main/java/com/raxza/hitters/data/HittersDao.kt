@@ -15,8 +15,8 @@ interface HittersDao {
     @Query("SELECT * FROM menu ORDER BY name ASC")
     fun getMenu(): LiveData<List<Menu>>
 
-    @Query("SELECT * FROM set ORDER BY name ASC")
-    fun getSet(): LiveData<List<Set>>
+    @Query("SELECT * FROM set WHERE menuSetId = :menuSetId")
+    fun getSet(menuSetId: String): LiveData<List<Set>>
 
     @Transaction
     @Query("SELECT * FROM set")
