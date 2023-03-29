@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Menu::class, Set::class], version = 1, exportSchema = false)
+@Database(entities = [Menu::class, Sets::class], version = 1, exportSchema = false)
 abstract class HittersDatabase : RoomDatabase() {
     abstract fun hittersDao(): HittersDao
 

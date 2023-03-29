@@ -15,8 +15,8 @@ data class Menu (
         val name: String
 ) : Parcelable
 
-@Entity(tableName = "set")
-data class Set(
+@Entity(tableName = "sets")
+data class Sets (
 
         @PrimaryKey(autoGenerate = true)
         val setId: Int,
@@ -45,5 +45,5 @@ data class MenuAndSet(
                 parentColumn = "menuId",
                 entityColumn = "menuSetId"
         )
-        val set: List<Set>
+        val set: List<Sets>
 )
