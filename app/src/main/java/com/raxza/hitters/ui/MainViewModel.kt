@@ -9,7 +9,7 @@ import com.raxza.hitters.data.Result
 
 class MainViewModel(private val hittersRepository: HittersRepository): ViewModel() {
 
-    private val _menu = MutableLiveData<Result<List<Menu>>>()
-    val food: LiveData<Result<List<Menu>>>
-    get() = _menu
+    fun getMenu(): LiveData<List<Menu>> = hittersRepository.getMenu()
+
+    fun newMenu(name: String) = hittersRepository.addMenu(name)
 }

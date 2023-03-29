@@ -16,6 +16,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.rvMenu.layoutManager = LinearLayoutManager(this)
 
-
+        
     }
 }
