@@ -13,7 +13,7 @@ interface HittersDao {
     fun insertSet(set: Sets)
 
     @Query("SELECT * FROM menu ORDER BY name ASC")
-    fun getMenu(): LiveData<List<Menu>>
+    fun getMenu(): List<Menu>
 
     @Query("SELECT * FROM sets WHERE menuSetId = :menuSetId")
     fun getSet(menuSetId: String): LiveData<List<Sets>>

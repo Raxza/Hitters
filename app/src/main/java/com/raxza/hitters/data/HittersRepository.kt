@@ -3,7 +3,7 @@ package com.raxza.hitters.data
 import androidx.lifecycle.LiveData
 class HittersRepository(private val database: HittersDatabase) {
 
-    fun getMenu(): LiveData<List<Menu>> {
+    fun getMenu(): List<Menu> {
         return database.hittersDao().getMenu()
     }
 
