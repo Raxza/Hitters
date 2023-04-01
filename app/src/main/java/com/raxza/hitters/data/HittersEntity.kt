@@ -22,7 +22,7 @@ data class Sets (
         val setId: Int,
 
         @field:ColumnInfo(name = "menuSetId")
-        val menuSetId: String,
+        val menuSetId: Int,
 
         @field:ColumnInfo(name = "name")
         val name: String,

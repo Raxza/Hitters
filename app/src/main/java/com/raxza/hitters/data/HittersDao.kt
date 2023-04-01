@@ -7,18 +7,18 @@ import androidx.room.*
 @Dao
 interface HittersDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertMenu(menu: Menu)
+    suspend fun insertMenu(menu: Menu): Long
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertSet(set: Sets)
+    suspend fun insertSet(set: Sets): Long
 
-    @Query("SELECT * FROM menu ORDER BY name ASC")
-    fun getMenu(): List<Menu>
+    @Query("SELECT * FROM menu ORDER BY menuId ASC")
+    fun getMenu(): LiveData<List<Menu>>
 
     @Query("SELECT * FROM sets WHERE menuSetId = :menuSetId")
     fun getSet(menuSetId: String): LiveData<List<Sets>>
 
     @Transaction
-    @Query("SELECT * FROM sets")
+    @Query("SELECT * FROM menu")
     fun getAllMenuAndSet(): LiveData<List<MenuAndSet>>
 }
