@@ -2,6 +2,7 @@ package com.raxza.hitters.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.raxza.hitters.R
 
 class SettingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
