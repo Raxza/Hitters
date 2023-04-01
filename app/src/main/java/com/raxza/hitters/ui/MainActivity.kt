@@ -3,7 +3,9 @@ package com.raxza.hitters.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
@@ -23,21 +25,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setUpViewModel()
-        setUpAdapater()
+        setUpAdapter()
 
-        mainViewModel.menu.observe(this) { menus ->
-            getMenus(menus)
-        }
+//        mainViewModel.menu.observe(this) { menus ->
+//            getMenus(menus)
+//        }
     }
 
     private fun getMenus(menus: List<Menu>) {
-        val menuAdapter = MainAdapter(menus)
-        binding.rvMenu.adapter = menuAdapter
+//        Log.d("GETMENU", menus?.size.toString())
+        if (menus.isNotEmpty()) {
+            binding.tvNoMenu.visibility = View.GONE
+            val menuAdapter = MainAdapter(menus)
+            binding.rvMenu.adapter = menuAdapter
+        } else binding.tvNoMenu.visibility = View.VISIBLE
     }
 
-    private fun setUpAdapater() {
+    private fun setUpAdapter() {
         binding.rvMenu.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = LinearLayoutManager(this@MainActivity)
             setHasFixedSize(true)
         }
     }
@@ -45,7 +51,9 @@ class MainActivity : AppCompatActivity() {
     private fun setUpViewModel() {
         val factory: ViewModelFactory = ViewModelFactory.getInstance(this)
         mainViewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
-        mainViewModel.getMenu()
+        mainViewModel.getMenu().observe(this) { menus ->
+            getMenus(menus)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: android.view.Menu?): Boolean {
@@ -68,6 +76,8 @@ class MainActivity : AppCompatActivity() {
                     .setView(inputEditTextField)
                     .setPositiveButton("Add") { _, _ ->
                         val editTextInput = inputEditTextField.text.toString()
+                        mainViewModel.newMenu(editTextInput)
+//                        mainViewModel.getMenu()
                     }
                     .setNegativeButton("Cancel", null)
                     .create()
