@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.raxza.hitters.data.Menu
 import com.raxza.hitters.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,12 +17,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.rvMenu.layoutManager = LinearLayoutManager(this)
-
         setUpViewModel()
+        setUpAdapater()
 
-        mainViewModel.menu.observe(this) { Menus ->
-            
+        mainViewModel.menu.observe(this) { menus ->
+            getMenus(menus)
+        }
+    }
+
+    private fun getMenus(menus: List<Menu>) {
+        val menuAdapter = MainAdapter(menus)
+        binding.rvMenu.adapter = menuAdapter
+    }
+
+    private fun setUpAdapater() {
+        binding.rvMenu.apply {
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
         }
     }
 
