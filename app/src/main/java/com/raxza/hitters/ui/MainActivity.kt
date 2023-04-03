@@ -1,13 +1,13 @@
 package com.raxza.hitters.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.raxza.hitters.R
@@ -26,14 +26,9 @@ class MainActivity : AppCompatActivity() {
 
         setUpViewModel()
         setUpAdapter()
-
-//        mainViewModel.menu.observe(this) { menus ->
-//            getMenus(menus)
-//        }
     }
 
     private fun getMenus(menus: List<Menu>) {
-//        Log.d("GETMENU", menus?.size.toString())
         if (menus.isNotEmpty()) {
             binding.tvNoMenu.visibility = View.GONE
             val menuAdapter = MainAdapter(menus)
@@ -56,6 +51,36 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun addNewMenuDialog() {
+
+        val inputEditTextField = EditText(this)
+        inputEditTextField.setSingleLine()
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle(R.string.dialog_menu_title)
+            .setMessage(R.string.dialog_menu_desc)
+            .setPositiveButton("Add", null)
+            .setNegativeButton("Cancel", null)
+            .create()
+
+        dialog.setView(inputEditTextField, 50, 0, 50, 0)
+
+        dialog.setOnShowListener {
+            val positiveButton: Button = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setOnClickListener {
+                if (inputEditTextField.text.isNotEmpty()) {
+                    val editTextInput = inputEditTextField.text.toString()
+                    mainViewModel.newMenu(editTextInput)
+                    dialog.dismiss()
+                } else {
+                    inputEditTextField.error = "Please Input Menu's Name"
+                }
+            }
+        }
+
+        dialog.show()
+    }
+
     override fun onCreateOptionsMenu(menu: android.view.Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_main, menu)
@@ -69,19 +94,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.action_add -> {
-                val inputEditTextField = EditText(this)
-                val dialog = AlertDialog.Builder(this)
-                    .setTitle("Add new menu")
-                    .setMessage("Input menu name")
-                    .setView(inputEditTextField)
-                    .setPositiveButton("Add") { _, _ ->
-                        val editTextInput = inputEditTextField.text.toString()
-                        mainViewModel.newMenu(editTextInput)
-//                        mainViewModel.getMenu()
-                    }
-                    .setNegativeButton("Cancel", null)
-                    .create()
-                dialog.show()
+                addNewMenuDialog()
                 true
             }
             else -> false
