@@ -10,4 +10,6 @@
     <string name="sunday">Sunday</string>
     <string name="action_setting">Setting</string>
     <string name="action_add_menu">Add Menu</string>
+    <string name="dialog_menu_desc">Please input menu\'s name</string>
+    <string name="dialog_menu_title">Add new menu</string>
 </resources>
