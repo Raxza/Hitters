@@ -16,7 +16,7 @@ interface HittersDao {
     fun getMenu(): LiveData<List<Menu>>
 
     @Query("SELECT * FROM sets WHERE menuSetId = :menuSetId")
-    fun getSet(menuSetId: String): LiveData<List<Sets>>
+    fun getSet(menuSetId: Int): LiveData<List<Sets>>
 
     @Transaction
     @Query("SELECT * FROM menu")

@@ -19,7 +19,7 @@ data class Menu (
 data class Sets (
 
         @PrimaryKey(autoGenerate = true)
-        val setId: Int,
+        val setId: Int = 0,
 
         @field:ColumnInfo(name = "menuSetId")
         val menuSetId: Int,

@@ -7,7 +7,7 @@ class HittersRepository(private val database: HittersDatabase) {
         return database.hittersDao().getMenu()
     }
 
-    fun getSets(menuSetId: String): LiveData<List<Sets>> {
+    fun getSets(menuSetId: Int): LiveData<List<Sets>> {
         return database.hittersDao().getSet(menuSetId)
     }
 
