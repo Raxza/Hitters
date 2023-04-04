@@ -28,13 +28,13 @@ data class Sets (
         val name: String,
 
         @field:ColumnInfo(name = "weight")
-        val weight: Float,
+        val weight: String,
 
         @field:ColumnInfo(name = "rep")
-        val rep: Int,
+        val rep: String,
 
         @field:ColumnInfo(name = "set")
-        val set: Int
+        val set: String
 )
 
 data class MenuAndSet(
