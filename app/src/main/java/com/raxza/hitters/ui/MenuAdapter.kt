@@ -18,7 +18,7 @@ class MainAdapter(private val menu: List<Menu>): RecyclerView.Adapter<MainAdapte
 
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, DetailActivity::class.java)
-                intent.putExtra("Menu", menu)
+                intent.putExtra("MenuID", menu.menuId)
                 itemView.context.startActivity(intent)
             }
         }

@@ -8,7 +8,7 @@
     tools:context=".ui.DetailActivity">
 
     <TextView
-        android:id="@+id/tv_day"
+        android:id="@+id/tv_set_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30dp"
@@ -20,8 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_add_30_696969"
-        app:layout_constraintTop_toTopOf="@+id/tv_day"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_day"
+        app:layout_constraintTop_toTopOf="@+id/tv_set_name"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_set_name"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <View
@@ -30,11 +30,11 @@
         android:layout_height="1dp"
         android:layout_marginTop="12dp"
         android:background="@android:color/darker_gray"
-        app:layout_constraintTop_toBottomOf="@id/tv_day"
+        app:layout_constraintTop_toBottomOf="@id/tv_set_name"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rv_sets"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/line1"

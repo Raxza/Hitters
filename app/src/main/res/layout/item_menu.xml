@@ -14,7 +14,7 @@
         android:layout_margin="12dp">
 
         <TextView
-            android:id="@+id/tv_day"
+            android:id="@+id/tv_set_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
@@ -27,9 +27,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
-            app:layout_constraintBottom_toBottomOf="@id/tv_day"
+            app:layout_constraintBottom_toBottomOf="@id/tv_set_name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_day" />
+            app:layout_constraintTop_toTopOf="@id/tv_set_name" />
 
         <LinearLayout
             android:id="@+id/hidden_view"
@@ -38,7 +38,7 @@
             android:orientation="vertical"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_day">
+            app:layout_constraintTop_toBottomOf="@+id/tv_set_name">
 
             <View
                 android:layout_width="325dp"
@@ -52,7 +52,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_day"
+                app:layout_constraintTop_toBottomOf="@+id/tv_set_name"
                 tools:listitem="@layout/item_pre_wolist" />
 
         </LinearLayout>

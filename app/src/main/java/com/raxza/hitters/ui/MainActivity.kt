@@ -17,7 +17,7 @@ import com.raxza.hitters.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var mainViewModel: MainViewModel
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,14 +41,14 @@ class MainActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@MainActivity)
             setHasFixedSize(true)
         }
+        viewModel.getMenu().observe(this) { menus ->
+            getMenus(menus)
+        }
     }
 
     private fun setUpViewModel() {
         val factory: ViewModelFactory = ViewModelFactory.getInstance(this)
-        mainViewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
-        mainViewModel.getMenu().observe(this) { menus ->
-            getMenus(menus)
-        }
+        viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
     }
 
     private fun addNewMenuDialog() {
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             positiveButton.setOnClickListener {
                 if (inputEditTextField.text.isNotEmpty()) {
                     val editTextInput = inputEditTextField.text.toString()
-                    mainViewModel.newMenu(editTextInput)
+                    viewModel.newMenu(editTextInput)
                     dialog.dismiss()
                 } else {
                     inputEditTextField.error = "Please Input Menu's Name"
