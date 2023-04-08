@@ -17,9 +17,6 @@
             android:name=".ui.SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.AddSetActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.DetailActivity"
             android:exported="false" />
         <activity
