@@ -11,7 +11,7 @@ class DetailViewModel(private val hittersRepository: HittersRepository): ViewMod
 
     fun getSets(menuSetId: Int): LiveData<List<Sets>> = hittersRepository.getSets(menuSetId)
 
-    fun newSets(menuSetId: Int, name: String, weight: Float, rep: Int, set: Int) {
+    fun newSets(menuSetId: Int, name: String, weight: String, rep: String, set: String) {
         viewModelScope.launch {
             val newSet = Sets(menuSetId = menuSetId, name = name, weight = weight, rep = rep, set = set)
             hittersRepository.addSets(newSet)
