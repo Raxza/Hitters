@@ -17,6 +17,10 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.ivAdd.setOnClickListener {
+            val dialogFragment = AddSetDialog()
+            dialogFragment.show(supportFragmentManager, "addNewSets")
+        }
 
         setUpViewModel()
         setUpAdapter()
