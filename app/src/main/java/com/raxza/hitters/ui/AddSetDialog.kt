@@ -59,8 +59,13 @@ class AddSetDialog: DialogFragment() {
                 else -> {
                     val tempSet = Sets(menuSetId = mMenuSetId!!, name = name, weight = weight, rep = reps, set = sets)
                     mListener?.onDialogSet(tag, tempSet)
+                    dismiss()
                 }
             }
+        }
+
+        btnCancel.setOnClickListener {
+            dismiss()
         }
     }
 
