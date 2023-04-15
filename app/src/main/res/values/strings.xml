@@ -12,4 +12,5 @@
     <string name="action_add_menu">Add Menu</string>
     <string name="dialog_menu_desc">Please input menu\'s name</string>
     <string name="dialog_menu_title">Add new menu</string>
+    <string name="action_delete_menu">Delete Menu</string>
 </resources>
