@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.raxza.hitters.R
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         setUpViewModel()
         setUpAdapter()
@@ -93,11 +96,30 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, SettingActivity::class.java))
                 true
             }
+            R.id.action_edit -> {
+                showEditMenu(true)
+                true
+            }
             R.id.action_add -> {
                 addNewMenuDialog()
                 true
             }
+            R.id.action_save -> {
+                showEditMenu(false)
+                true
+            }
             else -> false
         }
+    }
+
+    private fun showEditMenu(isShow: Boolean) {
+        val actSetting = findViewById<View>(R.id.action_setting) ?: return
+        val actDelete = findViewById<View>(R.id.action_edit)
+        val actAdd = findViewById<View>(R.id.action_add)
+        val actSave = findViewById<View>(R.id.action_save)
+        actSetting.isVisible = !isShow
+        actDelete.isVisible = !isShow
+        actAdd.isVisible = !isShow
+        actSave.isVisible = isShow
     }
 }
